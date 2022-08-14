@@ -6,9 +6,9 @@ import os
 import numpy as np
 import joblib
 
-loaded_model=joblib.load("./pkl_objects/model.pkl")
-loaded_stop=joblib.load("./pkl_objects/stopwords.pkl")
-loaded_vec=joblib.load("./pkl_objects/vectorizer.pkl")
+loaded_model=joblib.load("model.pkl")
+loaded_stop=joblib.load("stopwords.pkl")
+loaded_vec=joblib.load("vectorizer.pkl")
 
 app = Flask(__name__)
 
@@ -24,8 +24,8 @@ class ReviewForm(Form):
 
 @app.route('/')
 def index():
- form = ReviewForm(request.form)
- return render_template('reviewform.html', form=form)
+    form = ReviewForm(request.form)
+    return render_template('reviewform.html', form=form)
 
 @app.route('/results', methods=['POST'])
 def results():
